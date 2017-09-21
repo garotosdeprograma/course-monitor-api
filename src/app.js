@@ -10,9 +10,13 @@ const mongoConnection = mongoose.connect(config.mongodb_url, {
     useMongoClient: true
 });
 
-db.then(data => {
-    console.log("########## ",data);
-})
+mongoConnection
+    .then(data => {
+        console.log("########## ",data);
+    })
+    .catch(error => {
+        console.error(error);
+    })
 
 
 app.route('/cursos')
