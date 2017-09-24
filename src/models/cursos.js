@@ -18,7 +18,7 @@ const cursoSchema = new Schema({
     
     lista_disciplina: [String],
 
-    lista_notificacao: [String],
+    lista_notificacao: [Object],
 
     data_cadastro: { 
         type: Date, 
@@ -29,7 +29,6 @@ const cursoSchema = new Schema({
         type: Date,
         default: Date.now 
     },
-
 
 }, { collection:'curso' })
 

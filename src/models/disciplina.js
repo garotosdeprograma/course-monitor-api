@@ -3,24 +3,18 @@ import { emailValidator, isEmpty, containNumber } from '../helpers/validators';
 
 const Schema = mongoose.Schema;
 
-const cursoSchema = new Schema({
+const disciplinaSchema = new Schema({
     
     nome: {
         type: String, 
         trim: true,
-        maxlength: [20, 'O campo nome deve conter no máximo 20 caracteres.'],
         required: [true, 'O campo nome é obrigatório'],
-        validate:{
-            validator: containNumber(value),
-            message: 'O campo nome aceita somente letras !'
-        }
     },
 
     semestre: String,
     
-    lista_disciplina: [String],
-
-    lista_notificacao: [String],
+    //verificar se deve existir
+    lista_turma: [String],
 
     data_cadastro: { 
         type: Date, 
@@ -32,9 +26,8 @@ const cursoSchema = new Schema({
         default: Date.now 
     },
 
+}, { collection:'disciplina' })
 
-}, { collection:'curso' })
-
-const Curso = mongoose.model('Curso', cursoSchema);
+const Disciplina = mongoose.model('Disciplina', disciplinaSchema);
 
 

@@ -35,6 +35,8 @@ const alunoSchema = new Schema({
             message: 'O campo email é inválido!'
         }
     },
+    
+    //Adicionar atributo semestre corrente
 
     senha: {
         type: String, 
