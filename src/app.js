@@ -1,10 +1,9 @@
 import cors from 'cors'
 import morgan from 'morgan';
 import express from 'express';
-import mongoose from 'mongoose';
 import bodyParser from 'body-parser';
 import config from './config/config';
-
+import cadastrarAula from './models/cadastrar_aula';
 
 const app = express()
 
@@ -21,20 +20,7 @@ app.use(bodyParser.json({ type: 'application/*+json' }));
 app.use(bodyParser.raw({ type: 'application/vnd.custom-type' }));
 app.use(bodyParser.text({ type: 'text/html' }));
 
-
-//Setting connection with mongodb
-const mongoConnection = mongoose.connect(config.mongodb_url, {
-    useMongoClient: true
-});
-
-mongoConnection
-    .then(data => {
-        console.log("########## ",data);
-    })
-    .catch(error => {
-        console.error(error);
-    })
-
+cadastrarAula();
 
 app.route('/cursos')
     .get((req, res) => {
@@ -44,7 +30,5 @@ app.route('/cursos')
             lista_disciplina:['idMath','idCalculo','idPW']
         }])
     })
-
-
-
+    
 export default app;

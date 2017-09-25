@@ -8,7 +8,9 @@
     "build": "babel src/ -d build/ -s --copy-files ",
     "development": "npm run build && nodemon ./build/",
     "test": "echo \"Error: no test specified\" && exit 1",
-    "test-integration": "mocha --opts test/integration/mocha.opts test/integration/*.js"
+    // TODO revisar teste
+    "test-integration": "mocha --opts test/integration/mocha.opts test/integration/*.js",
+    "homologation": "babel-node src/models/cadastrar_aula"
   },
   "repository": {
     "type": "git",

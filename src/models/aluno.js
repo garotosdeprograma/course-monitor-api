@@ -65,3 +65,7 @@ const alunoSchema = new Schema({
 }, { collection:'aluno' })
 
 const Aluno = mongoose.model('Aluno', alunoSchema);
+
+module.exports = {
+    Aluno : Aluno
+}
