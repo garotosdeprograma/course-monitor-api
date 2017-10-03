@@ -65,4 +65,6 @@ const professorSchema = new Schema({
 
 }, { collection:'professor' })
 
-const ProfessorSchema = mongoose.model('ProfessorSchema', professorSchema);
+const Professor = mongoose.model('Professor', professorSchema);
+
+export default Professor;

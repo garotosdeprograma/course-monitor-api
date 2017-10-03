@@ -59,3 +59,5 @@ const usuarioNapSchema = new Schema({
 }, { collection:'usuario_nap' })
 
 const UsuarioNap = mongoose.model('UsuarioNap', usuarioNapSchema);
+
+export default UsuarioNap;

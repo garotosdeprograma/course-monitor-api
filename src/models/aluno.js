@@ -36,18 +36,18 @@ const alunoSchema = new Schema({
         }
     },
     
-    //Adicionar atributo semestre corrente
+    // TODO Adicionar atributo semestre corrente
 
     senha: {
         type: String, 
-        required: true
+        required: [true, 'O campo senha é obrigatório']
     },
 
     matricula: Number,
 
     curso: {
         type: String, 
-        required: true
+        required: [true, 'O campo curso é obrigatório']
     },
 
     data_cadastro: { 
@@ -66,6 +66,4 @@ const alunoSchema = new Schema({
 
 const Aluno = mongoose.model('Aluno', alunoSchema);
 
-module.exports = {
-    Aluno : Aluno
-}
+export default Aluno;

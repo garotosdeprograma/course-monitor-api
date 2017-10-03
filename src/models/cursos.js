@@ -33,3 +33,5 @@ const cursoSchema = new Schema({
 }, { collection:'curso' })
 
 const Curso = mongoose.model('Curso', cursoSchema);
+
+export default Curso;

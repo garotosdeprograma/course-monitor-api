@@ -13,7 +13,7 @@ const disciplinaSchema = new Schema({
 
     semestre: String,
     
-    //verificar se deve existir
+    // TODO verificar se deve existir
     lista_turma: [String],
 
     data_cadastro: { 
@@ -30,4 +30,4 @@ const disciplinaSchema = new Schema({
 
 const Disciplina = mongoose.model('Disciplina', disciplinaSchema);
 
-
+export default Disciplina;

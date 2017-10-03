@@ -21,7 +21,7 @@ const notificacaoSchema = new Schema({
         type: Date, 
         default: Date.now 
     }
-//verificar exportação obj    
+// TODO verificar exportação obj    
 }, { collection:'aluno' })
 
 const Notificacao = mongoose.model('Notificacao', notificacaoSchema);

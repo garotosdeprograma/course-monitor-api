@@ -46,4 +46,4 @@ const aulaSchema = new Schema({
 //TODO verificar exportação obj
 }, { collection:'aluno' })
 
-const Aula = mongoose.model('Aula', aulaSchema);
+// const Aula = mongoose.model('Aula', aulaSchema);
