@@ -1,7 +1,7 @@
-import cors from 'cors'
-import morgan from 'morgan';
-import express from 'express';
-import bodyParser from 'body-parser';
+import cors = require('cors');
+import morgan = require('morgan');
+import express = require('express');
+import bodyParser = require('body-parser');
 import config from './config/config';
 // import cadastrarAula from './models/cadastrar-aula';
 import { searchAll, searchBy } from './models/buscar-dados';
@@ -24,7 +24,7 @@ app.use(bodyParser.text({ type: 'text/html' }));
 
 // cadastrarAula();
 // searchAll();
-searchBy({numero_aula: 1});
+searchBy({ numero_aula: 1 });
 
 // TODO refazer
 // update({ numero_aula: 2 }, { $set: { status: 'Cancelada' } });
