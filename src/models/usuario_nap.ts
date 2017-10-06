@@ -1,9 +1,10 @@
-import mongoose from 'mongoose';
+// import mongoose from 'mongoose';
+import mongoose = require('mongoose')
 import { emailValidator, isEmpty, containNumber } from '../helpers/validators';
 
 const Schema = mongoose.Schema;
 
-const alunoSchema = new Schema({
+const usuarioNapSchema = new Schema({
     
     nome: {
         type: String, 
@@ -11,7 +12,7 @@ const alunoSchema = new Schema({
         maxlength: [20, 'O campo nome deve conter no máximo 20 caracteres.'],
         required: [true, 'O campo nome é obrigatório'],
         validate:{
-            validator: containNumber(value),
+            validator: containNumber,
             message: 'O campo nome aceita somente letras !'
         }
     },
@@ -21,7 +22,7 @@ const alunoSchema = new Schema({
         required: [true, 'O campo sobrenome é obrigatório'],
         maxlength: [20, 'O campo sobrenome deve conter no máximo 20 caracteres.'],
         validate:{
-            validator: containNumber(value),
+            validator: containNumber,
             message: 'O campo sobrenome aceita somente letras !'
         }
     },
@@ -31,23 +32,19 @@ const alunoSchema = new Schema({
         required: [true, 'O campo email é obrigatório'],
         unique: [true, 'Email informado já cadastrado'],
         validate:{
-            validator: emailValidator(value),
+            validator: emailValidator,
             message: 'O campo email é inválido!'
         }
     },
-    
-    // TODO Adicionar atributo semestre corrente
 
     senha: {
         type: String, 
-        required: [true, 'O campo senha é obrigatório']
+        required: true
     },
 
-    matricula: Number,
-
-    curso: {
-        type: String, 
-        required: [true, 'O campo curso é obrigatório']
+    status: {
+        type: Boolean,
+        default: false
     },
 
     data_cadastro: { 
@@ -58,12 +55,10 @@ const alunoSchema = new Schema({
     data_update: { 
         type: Date, 
         default: Date.now 
-    },
-    
-    lista_turma: [String]
+    }
 
-}, { collection:'aluno' })
+}, { collection:'usuario_nap' })
 
-const Aluno = mongoose.model('Aluno', alunoSchema);
+const UsuarioNap = mongoose.model('UsuarioNap', usuarioNapSchema);
 
-export default Aluno;
+export default UsuarioNap;

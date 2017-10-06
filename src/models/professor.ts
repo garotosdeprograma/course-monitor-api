@@ -1,9 +1,10 @@
-import mongoose from 'mongoose';
+// import mongoose from 'mongoose';
+import mongoose = require("mongoose"); //import mongoose
 import { emailValidator, isEmpty, containNumber } from '../helpers/validators';
 
 const Schema = mongoose.Schema;
 
-const usuarioNapSchema = new Schema({
+const professorSchema = new Schema({
     
     nome: {
         type: String, 
@@ -11,7 +12,7 @@ const usuarioNapSchema = new Schema({
         maxlength: [20, 'O campo nome deve conter no máximo 20 caracteres.'],
         required: [true, 'O campo nome é obrigatório'],
         validate:{
-            validator: containNumber(value),
+            validator: containNumber,
             message: 'O campo nome aceita somente letras !'
         }
     },
@@ -21,7 +22,7 @@ const usuarioNapSchema = new Schema({
         required: [true, 'O campo sobrenome é obrigatório'],
         maxlength: [20, 'O campo sobrenome deve conter no máximo 20 caracteres.'],
         validate:{
-            validator: containNumber(value),
+            validator: containNumber,
             message: 'O campo sobrenome aceita somente letras !'
         }
     },
@@ -31,19 +32,24 @@ const usuarioNapSchema = new Schema({
         required: [true, 'O campo email é obrigatório'],
         unique: [true, 'Email informado já cadastrado'],
         validate:{
-            validator: emailValidator(value),
+            validator: emailValidator,
             message: 'O campo email é inválido!'
         }
     },
 
-    senha: {
-        type: String, 
-        required: true
+    coordenador: {
+        type: Boolean,
+        default: false
     },
 
     status: {
         type: Boolean,
         default: false
+    },
+
+    senha: {
+        type: String, 
+        required: true
     },
 
     data_cadastro: { 
@@ -52,12 +58,14 @@ const usuarioNapSchema = new Schema({
     },
 
     data_update: { 
-        type: Date, 
+        type: Date,
         default: Date.now 
-    }
+    },
 
-}, { collection:'usuario_nap' })
+    lista_turma: [String]
 
-const UsuarioNap = mongoose.model('UsuarioNap', usuarioNapSchema);
+}, { collection:'professor' })
 
-export default UsuarioNap;
+const Professor = mongoose.model('Professor', professorSchema);
+
+export default Professor;

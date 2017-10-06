@@ -1,4 +1,5 @@
-import mongoose from 'mongoose';
+// import mongoose from 'mongoose';
+import mongoose = require("mongoose"); //import mongoose
 import { emailValidator, isEmpty, containNumber } from '../helpers/validators';
 
 const Schema = mongoose.Schema;
@@ -11,7 +12,7 @@ const cursoSchema = new Schema({
         maxlength: [20, 'O campo nome deve conter no máximo 20 caracteres.'],
         required: [true, 'O campo nome é obrigatório'],
         validate:{
-            validator: containNumber(value),
+            validator: containNumber,
             message: 'O campo nome aceita somente letras !'
         }
     },
