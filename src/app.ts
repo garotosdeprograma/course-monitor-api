@@ -1,7 +1,7 @@
-import cors = require('cors');
-import morgan = require('morgan');
-import express = require('express');
-import bodyParser = require('body-parser');
+import * as cors from 'cors';
+import * as morgan from 'morgan';
+import * as express from 'express';
+import * as bodyParser from 'body-parser';
 import config from './config/config';
 // import cadastrarAula from './models/cadastrar-aula';
 import { searchAll, searchBy } from './models/buscar-dados';

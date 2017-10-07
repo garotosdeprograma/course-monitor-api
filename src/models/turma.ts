@@ -10,7 +10,7 @@ const turmaSchema = new Schema({
         trim: true,
         required: [true, 'O campo codigo é obrigatório'],
     },
-    // TODO usar para cadastro - escolhe curso depois a turma
+
     curso: {
         type: String,
         required: true
@@ -22,12 +22,12 @@ const turmaSchema = new Schema({
         maxlength: [20, 'O campo nome disciplina deve conter no máximo 20 caracteres.'],
         required: [true, 'O campo nome disciplina é obrigatório'],
     },
-    // TODO avaliar atributo - caso de encerameto da turma
-    status: {
+
+    ativo: {
         type: Boolean,
-        default: false
+        default: true
     },
-    // TODO array com as opções de turno para escolher no cadastro
+    
     turno: {
         type: String,
         required: true
@@ -47,7 +47,7 @@ const turmaSchema = new Schema({
 
     lista_notificacao: [Object]
 
-}, { collection: 'aluno' })
+}, { collection: 'turma' })
 
 const Turma = mongoose.model('Turma', turmaSchema);
 
