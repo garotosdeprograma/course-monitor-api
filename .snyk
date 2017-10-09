@@ -1,0 +1,44 @@
+# Snyk (https://snyk.io) policy file, patches or ignores known vulnerabilities.
+version: v1.7.1
+ignore: {}
+# patches apply the minimum changes required to fix a vulnerability
+patch:
+  'npm:debug:20170905':
+    - babel-core > babel-template > babel-traverse > debug:
+        patched: '2017-10-09T01:10:32.460Z'
+      snyk > snyk-module > debug:
+        patched: '2017-10-09T02:05:31.217Z'
+    - babel-core > babel-helpers > babel-template > babel-traverse > debug:
+        patched: '2017-10-09T01:10:32.460Z'
+      snyk > snyk-policy > snyk-module > debug:
+        patched: '2017-10-09T02:05:31.217Z'
+    - babel-core > debug:
+        patched: '2017-10-09T01:10:32.460Z'
+      snyk > snyk-resolve-deps > snyk-module > debug:
+        patched: '2017-10-09T02:05:31.217Z'
+    - babel-core > babel-traverse > debug:
+        patched: '2017-10-09T01:10:32.460Z'
+      snyk > snyk-resolve > debug:
+        patched: '2017-10-09T02:05:31.217Z'
+    - snyk > snyk-policy > snyk-resolve > debug:
+        patched: '2017-10-09T02:05:31.217Z'
+    - snyk > needle > debug:
+        patched: '2017-10-09T02:05:31.217Z'
+    - snyk > snyk-try-require > debug:
+        patched: '2017-10-09T02:05:31.217Z'
+    - snyk > snyk-policy > snyk-try-require > debug:
+        patched: '2017-10-09T02:05:31.217Z'
+    - snyk > snyk-resolve-deps > snyk-try-require > debug:
+        patched: '2017-10-09T02:05:31.217Z'
+    - snyk > snyk-policy > debug:
+        patched: '2017-10-09T02:05:31.217Z'
+    - snyk > snyk-config > debug:
+        patched: '2017-10-09T02:05:31.217Z'
+    - snyk > snyk-resolve-deps > debug:
+        patched: '2017-10-09T02:05:31.217Z'
+    - snyk > snyk-resolve-deps > clite > debug:
+        patched: '2017-10-09T02:05:31.217Z'
+    - snyk > snyk-resolve-deps > snyk-resolve > debug:
+        patched: '2017-10-09T02:05:31.217Z'
+    - snyk > debug:
+        patched: '2017-10-09T02:05:31.217Z'

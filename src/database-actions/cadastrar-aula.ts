@@ -1,5 +1,5 @@
-import saveCollection from '../database-actions/save-collection';
-import Aula from './aula';
+import saveCollection from './save-collection';
+import Aula from '../models/aula';
 
 const aula = new Aula({
     numero_aula: 1,

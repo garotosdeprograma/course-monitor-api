@@ -1,41 +1,40 @@
 import * as cors from 'cors';
 import * as morgan from 'morgan';
 import * as express from 'express';
+import * as helmet from 'helmet';
 import * as bodyParser from 'body-parser';
+import * as responseTime from 'response-time';
 import config from './config/config';
-// import cadastrarAula from './models/cadastrar-aula';
-import { searchAll, searchBy } from './models/buscar-dados';
-// import { update } from './models/atualizar';
+import routes from './routes';
+// import { searchAll, searchBy } from './database-actions/buscar-dados';
+// import cadastrarAula from './database-actions/cadastrar-aula';
+// import { update } from './database-actions/atualizar';
 
 const app = express()
 
-app.use(cors())
-app.use(bodyParser.json())
-app.use(morgan('dev'))
 
-// app.set('view engine', 'ejs')
+// Enabling cross-origin resource sharing
+app.use(cors());
+
+// help protect your app from some well-known web vulnerabilities by setting HTTP headers appropriately.
+app.use(helmet());
+
+// Response time for Node.js servers
+app.use(responseTime());
 
 // Configuracao dos Requests do app
-app.use(bodyParser.json({ limit: '10mb' }));
+app.use(morgan('dev'));
 app.use(bodyParser.urlencoded({ limit: '10mb', extended: true }));
-app.use(bodyParser.json({ type: 'application/*+json' }));
-app.use(bodyParser.raw({ type: 'application/vnd.custom-type' }));
-app.use(bodyParser.text({ type: 'text/html' }));
+app.use(bodyParser.json({ type: 'application/*+json', limit: '10mb' }));
 
 // cadastrarAula();
 // searchAll();
-searchBy({ numero_aula: 1 });
+// searchBy({ numero_aula: 1 });
 
 // TODO refazer
 // update({ numero_aula: 2 }, { $set: { status: 'Cancelada' } });
 
-app.route('/cursos')
-    .get((req, res) => {
-        res.json([{
-            id: 1,
-            nome: 'SI',
-            lista_disciplina: ['idMath', 'idCalculo', 'idPW']
-        }])
-    })
+app.use('/', routes);
+
 
 export default app;

@@ -17,14 +17,9 @@ const cursoSchema = new Schema({
         }
     },
     
-    lista_disciplina: [String],
+    disciplinas: [{ type: Schema.Types.ObjectId, ref: 'Disciplina' }],
 
-    lista_notificacao: [Object],
-
-    data_cadastro: { 
-        type: Date, 
-        default: Date.now 
-    },
+    notificacoes: [{ type: Schema.Types.ObjectId, ref: 'Notificacao' }],
 
     data_update: { 
         type: Date,

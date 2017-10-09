@@ -43,9 +43,9 @@ const turmaSchema = new Schema({
         default: Date.now
     },
 
-    lista_aula: [Object],
+    aulas: [{ type: Schema.Types.ObjectId, ref: 'Aula' }],
 
-    lista_notificacao: [Object]
+    notificacoes: [{ type: Schema.Types.ObjectId, ref: 'Notificacao' }]
 
 }, { collection: 'turma' })
 

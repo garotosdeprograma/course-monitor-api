@@ -1,6 +1,4 @@
-// import mongoose from 'mongoose';
-
-import mongoose = require("mongoose"); //import mongoose
+import * as mongoose from 'mongoose';
 
 
 const Schema = mongoose.Schema;
@@ -34,8 +32,14 @@ const aulaSchema = new Schema({
 
     data_remarcacao: {
         type: Date,
+    },
+
+    turma: {
+        type: Schema.Types.ObjectId,
+        ref: 'Turma',
+        required: [ true, 'O campo turma é obrigatório']
     }
-    // TODO verificar a necessidade de criar collection
+    
 }, { collection: 'aula' })
 
 const Aula = mongoose.model('Aula', aulaSchema);

@@ -1,5 +1,4 @@
-// import mongoose from 'mongoose';
-import mongoose = require("mongoose"); //import mongoose
+import * as mongoose from 'mongoose';
 import { emailValidator, isEmpty, containNumber } from '../helpers/validators';
 
 const Schema = mongoose.Schema;
@@ -52,17 +51,12 @@ const professorSchema = new Schema({
         required: true
     },
 
-    data_cadastro: { 
-        type: Date, 
-        default: Date.now 
-    },
-
     data_update: { 
         type: Date,
         default: Date.now 
     },
 
-    lista_turma: [String]
+    turmas: [{ type: Schema.Types.ObjectId, ref: 'Turma' }]
 
 }, { collection:'professor' })
 

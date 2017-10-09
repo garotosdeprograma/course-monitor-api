@@ -47,11 +47,6 @@ const usuarioNapSchema = new Schema({
         default: false
     },
 
-    data_cadastro: { 
-        type: Date, 
-        default: Date.now 
-    },
-
     data_update: { 
         type: Date, 
         default: Date.now 

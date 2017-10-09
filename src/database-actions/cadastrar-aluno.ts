@@ -1,14 +1,14 @@
-var mongoose = require('mongoose');
-var url_banco = require('../config/config');
+const mongoose = require('mongoose');
+const url_banco = require('../config/config');
 mongoose.connect(url_banco.url, {
     useMongoClient: true
 });
 
-var schema_aluno = require('./aluno');
+const schema_aluno = require('./aluno');
 
 mongoose.connection.once('open', function () {
 
-    let aluno = new schema_aluno.Aluno({
+    const aluno = new schema_aluno.Aluno({
         nome: 'Joziélio',
         sobrenome: 'Santiago',
         email: 'jozielio@email.com',

@@ -14,13 +14,7 @@ const disciplinaSchema = new Schema({
 
     semestre: String,
     
-    // TODO verificar se deve existir
-    lista_turma: [String],
-
-    data_cadastro: { 
-        type: Date, 
-        default: Date.now 
-    },
+    turmas: [{ type: Schema.Types.ObjectId, ref: 'Turma' }],
 
     data_update: { 
         type: Date,

@@ -50,18 +50,13 @@ const alunoSchema = new Schema({
         type: String, 
         required: [true, 'O campo curso é obrigatório']
     },
-
-    data_cadastro: { 
-        type: Date, 
-        default: Date.now 
-    },
-
+    
     data_update: { 
         type: Date, 
         default: Date.now 
     },
     
-    lista_turma: [String]
+    turmas: [{ type: Schema.Types.ObjectId, ref: 'Turma' }]
 
 }, { collection:'aluno' })
 

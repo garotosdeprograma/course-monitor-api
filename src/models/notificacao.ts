@@ -5,10 +5,17 @@ const Schema = mongoose.Schema;
 
 const notificacaoSchema = new Schema({
     
-   titulo: {
+    
+    tipo: {
         type: String, 
         trim: true,
-        required: [true, 'O campo título é obrigatório'],
+        required: [true, 'O campo tipo é obrigatório'],
+    },
+    
+    titulo: {
+         type: String, 
+         trim: true,
+         required: [true, 'O campo título é obrigatório'],
     },
 
     descricao: {
@@ -17,11 +24,14 @@ const notificacaoSchema = new Schema({
         required: [true, 'O campo descrição é obrigatório'],
     },
 
-    data_cadastro: { 
+    professor: { type: Schema.Types.ObjectId, ref: 'Professor' },
+
+    nap: { type: Schema.Types.ObjectId, ref: 'UsuarioNap' },
+
+    data_update: { 
         type: Date, 
         default: Date.now 
     }
-// TODO verificar exportação obj    
-}, { collection:'aluno' })
+}, { collection:'notificacao' })
 
 const Notificacao = mongoose.model('Notificacao', notificacaoSchema);
