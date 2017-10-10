@@ -2,60 +2,10 @@
   "name": "course-monitor",
   "version": "1.0.0",
   "dependencies": {
-    "@types/body-parser": {
-      "version": "1.16.5",
-      "from": "@types/body-parser@latest",
-      "resolved": "https://registry.npmjs.org/@types/body-parser/-/body-parser-1.16.5.tgz"
-    },
-    "@types/bson": {
-      "version": "1.0.4",
-      "from": "@types/bson@*",
-      "resolved": "https://registry.npmjs.org/@types/bson/-/bson-1.0.4.tgz"
-    },
-    "@types/cors": {
-      "version": "2.8.1",
-      "from": "@types/cors@latest",
-      "resolved": "https://registry.npmjs.org/@types/cors/-/cors-2.8.1.tgz"
-    },
-    "@types/express": {
-      "version": "4.0.37",
-      "from": "@types/express@latest",
-      "resolved": "https://registry.npmjs.org/@types/express/-/express-4.0.37.tgz"
-    },
-    "@types/express-serve-static-core": {
-      "version": "4.0.53",
-      "from": "@types/express-serve-static-core@*",
-      "resolved": "https://registry.npmjs.org/@types/express-serve-static-core/-/express-serve-static-core-4.0.53.tgz"
-    },
-    "@types/mime": {
-      "version": "2.0.0",
-      "from": "@types/mime@*",
-      "resolved": "https://registry.npmjs.org/@types/mime/-/mime-2.0.0.tgz"
-    },
-    "@types/mongodb": {
-      "version": "2.2.13",
-      "from": "@types/mongodb@*",
-      "resolved": "https://registry.npmjs.org/@types/mongodb/-/mongodb-2.2.13.tgz"
-    },
-    "@types/mongoose": {
-      "version": "4.7.23",
-      "from": "@types/mongoose@latest",
-      "resolved": "https://registry.npmjs.org/@types/mongoose/-/mongoose-4.7.23.tgz"
-    },
-    "@types/morgan": {
-      "version": "1.7.33",
-      "from": "@types/morgan@latest",
-      "resolved": "https://registry.npmjs.org/@types/morgan/-/morgan-1.7.33.tgz"
-    },
     "@types/node": {
-      "version": "8.0.32",
-      "from": "@types/node@*",
-      "resolved": "https://registry.npmjs.org/@types/node/-/node-8.0.32.tgz"
-    },
-    "@types/serve-static": {
-      "version": "1.7.32",
-      "from": "@types/serve-static@*",
-      "resolved": "https://registry.npmjs.org/@types/serve-static/-/serve-static-1.7.32.tgz"
+      "version": "8.0.33",
+      "from": "@types/node@latest",
+      "resolved": "https://registry.npmjs.org/@types/node/-/node-8.0.33.tgz"
     },
     "abbrev": {
       "version": "1.1.1",

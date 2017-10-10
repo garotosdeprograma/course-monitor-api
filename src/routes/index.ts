@@ -1,11 +1,14 @@
 import * as express from 'express';
-import routes from '../controllers';
+import authRoutes from '../controllers/auth';
+import unAuthRoutes from '../controllers/unAuth';
 
 const router = express.Router();
 
-router.use('/', routes);
+router.use('/unAuthRoutes', unAuthRoutes)
 
-console.log("ROUTEs");
+router.use('/authRoutes', authRoutes);
+
+console.log("ROUTES");
 
 export default router;
 

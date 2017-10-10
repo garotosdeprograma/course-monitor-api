@@ -3,8 +3,6 @@ import alunoController from './alunoController';
 
 const router = express.Router();
 
-router.use('/', alunoController);
-
-console.log("CONTROLLER");
+router.use('/aluno', alunoController);
 
 export default router;
