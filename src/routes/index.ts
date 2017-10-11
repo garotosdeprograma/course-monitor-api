@@ -4,9 +4,9 @@ import unAuthRoutes from '../controllers/unAuth';
 
 const router = express.Router();
 
-router.use('/unAuthRoutes', unAuthRoutes)
+router.use('/', unAuthRoutes)
 
-router.use('/authRoutes', authRoutes);
+router.use('/auth', authRoutes);
 
 console.log("ROUTES");
 
