@@ -9,4 +9,4 @@ let connection: mongoose.Connection = mongoose.createConnection(config.url);
 //     useMongoClient: true
 // });
 
-export default mongoose;
+export default connection;

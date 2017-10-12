@@ -8,8 +8,6 @@ router.use('/', unAuthRoutes)
 
 router.use('/auth', authRoutes);
 
-console.log("ROUTES");
-
 export default router;
 
 

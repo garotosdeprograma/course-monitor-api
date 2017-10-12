@@ -22,7 +22,7 @@ app.use(responseTime());
 // Configuracao dos Requests do app
 app.use(morgan('dev'));
 app.use(bodyParser.urlencoded({ limit: '10mb', extended: true }));
-app.use(bodyParser.json({ type: 'application/*+json', limit: '10mb' }));
+app.use(bodyParser.json({ type: 'application/json', limit: '10mb' }));
 
 app.use('/api', routes);
 

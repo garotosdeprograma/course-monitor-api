@@ -4,7 +4,7 @@
   "description": "",
   "main": "index.js",
   "scripts": {
-    "start": "nodemon --watch ./src -e ts  --exec \"npm run compile\"",
+    "start": "nodemon --watch ./src -e ts  --exec \"npm run build\"",
     "compile": "nodemon --watch ./src -e ts --exec \"npm run build\"",
     "build": "tsc && node ./build/index.js",
     "watch": "nodemon --watch src ./build/ && tsc",
