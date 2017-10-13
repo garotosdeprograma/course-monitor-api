@@ -3,8 +3,7 @@ import { emailValidator, isEmpty, containNumber } from '../helpers/validators';
 
 const Schema = mongoose.Schema;
 
-const notificacaoSchema = new Schema({
-    
+export default new Schema({
     
     tipo: {
         type: String, 
@@ -33,5 +32,3 @@ const notificacaoSchema = new Schema({
         default: Date.now 
     }
 }, { collection:'notificacao' })
-
-const Notificacao = mongoose.model('Notificacao', notificacaoSchema);

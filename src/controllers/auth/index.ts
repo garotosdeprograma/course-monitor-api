@@ -7,7 +7,7 @@ const router = express.Router();
 // Users controllers
 router.use('/aluno', alunoController);
 // router.use('/professor', professorController);
-// router.use('/usuario-nap', usuarioNapController);
+router.use('/usuario-nap', usuarioNapController);
 // router.use('/admin', adminController);
 
 // Actions controllers 

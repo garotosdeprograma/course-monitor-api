@@ -3,7 +3,7 @@ import { emailValidator, isEmpty, containNumber } from '../helpers/validators';
 
 const Schema = mongoose.Schema;
 
-const cursoSchema = new Schema({
+export default new Schema({
     
     nome: {
         type: String, 
@@ -26,7 +26,3 @@ const cursoSchema = new Schema({
     },
 
 }, { collection:'curso' })
-
-const Curso = mongoose.model('Curso', cursoSchema);
-
-export default Curso;

@@ -3,12 +3,8 @@ import config from '../config/config';
 
 mongoose.Promise = global.Promise;
 
-// const mongooseConnected 
-
 export default () => {
     return mongoose.createConnection(config.url, {
         useMongoClient: true
     });
 }
-
-// export const mongooseConnected = mongoose;

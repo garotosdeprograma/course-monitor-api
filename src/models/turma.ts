@@ -3,7 +3,7 @@ import { emailValidator, isEmpty, containNumber } from '../helpers/validators';
 
 const Schema = mongoose.Schema;
 
-const turmaSchema = new Schema({
+export default new Schema({
 
     codigo: {
         type: String,
@@ -48,7 +48,3 @@ const turmaSchema = new Schema({
     notificacoes: [{ type: Schema.Types.ObjectId, ref: 'Notificacao' }]
 
 }, { collection: 'turma' })
-
-const Turma = mongoose.model('Turma', turmaSchema);
-
-export default Turma;

@@ -58,7 +58,3 @@ export default new Schema({
     turmas: [{ type: Schema.Types.ObjectId, ref: 'Turma' }]
 
 }, { collection:'aluno' })
-
-// const Aluno = mongoose.model('Aluno', alunoSchema);
-
-// export default Aluno;

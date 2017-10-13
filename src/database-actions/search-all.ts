@@ -1,19 +1,13 @@
-import closeMongoConnection from './close-connection';
-import openMongoConnection from './open-connection'
+import closeConnection from './close-connection';
+import openConnection from './open-connection';
 
-const connection = openMongoConnection;
-
-// export default (model) => {
-//     openMongoConnection.connection.once('open', function () {
-//         model.find(function (err, obj) {
-//             if (err) {
-//                 console.log(err)
-//                 closeMongoConnection(openMongoConnection);            
-//             }
-//             else {
-//                 console.log(obj);
-//                 closeMongoConnection(openMongoConnection);
-//             };
-//         });         
-//     });    
-// };
+export default (model, connection) => {
+    return model.find().then(result => {
+        closeConnection(connection);
+        return result;
+    })
+    .catch(err => {
+        console.error(err);
+        closeConnection(connection);
+    })
+};

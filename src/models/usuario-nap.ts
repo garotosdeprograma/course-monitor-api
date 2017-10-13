@@ -3,7 +3,7 @@ import { emailValidator, isEmpty, containNumber } from '../helpers/validators';
 
 const Schema = mongoose.Schema;
 
-const usuarioNapSchema = new Schema({
+export default new Schema({
     
     nome: {
         type: String, 
@@ -52,7 +52,3 @@ const usuarioNapSchema = new Schema({
     }
 
 }, { collection:'usuario_nap' })
-
-const UsuarioNap = mongoose.model('UsuarioNap', usuarioNapSchema);
-
-export default UsuarioNap;

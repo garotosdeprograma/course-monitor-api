@@ -2,7 +2,7 @@ import * as mongoose from 'mongoose';
 
 const Schema = mongoose.Schema;
 
-const aulaSchema = new Schema({
+export default new Schema({
 
     numero_aula: {
         type: Number,
@@ -40,7 +40,3 @@ const aulaSchema = new Schema({
     }
     
 }, { collection: 'aula' })
-
-const Aula = mongoose.model('Aula', aulaSchema);
-
-export default Aula;

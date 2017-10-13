@@ -1,21 +1,28 @@
 import * as express from 'express';
-import databaseAction from '../../database-actions/update';
-import Aluno from '../../models/aluno';
-import searchBy from '../../database-actions/search-by';
-import update from '../../database-actions/update';
+import AlunoSchema from '../../models/aluno';
+import searchBy from '../../helpers/searchByDocument';
+import updateDocument from '../../helpers/updateDocument';
 
 const router = express.Router();
 
 router.get('/:_id', function (req, res, next) {
-    const result = searchBy(Aluno, req.params)
-    res.send(result);
-    // res.send(req.params.id);
-})
+    searchBy('Aluno', req.params, AlunoSchema)
+    .then(result => {
+        res.send(result);
+    })
+    .catch(err => {
+        console.error(err);
+    })
+});
 
 router.put('/:_id', function (req, res, next) {
-    update(Aluno, req.params, req.body)
-    res.send('Atualizado!')
-    // res.send(req.params.id);
+    updateDocument('Aluno', req.params, req.body, AlunoSchema)
+    .then(result => {
+        res.send(result);
+    })
+    .catch(err => {
+        console.error(err);
+    })
 })
 
 router.put('/:_id/unsuscribe', function (req, res, next) {

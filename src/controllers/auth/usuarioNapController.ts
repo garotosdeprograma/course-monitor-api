@@ -1,19 +1,29 @@
 import * as express from 'express';
-import Professor from '../../models/professor';
-import save from '../../database-actions/save-collection';
-import update from '../../database-actions/update';
+import ProfessorSchema from '../../models/professor';
+import updateDocument from '../../helpers/updateDocument';
+import createDocument from '../../helpers/createDocument';
 
 const router = express.Router();
 
-// router.post('/professor', function (req, res, next) {
-//     const professor = new Professor(req.body);
-//     const professorSave = save(professor);
-//     res.send(professorSave);
-// })
+router.post('/professor', function (req, res, next) {
+    createDocument('Professor', ProfessorSchema, req.body)
+    .then(result => {
+        res.send(result);
+    })
+    .catch(err => {
+        console.error(err);
+        res.send(err);
+    });
+})
 
 router.put('/professor/:_id', function (req, res, next) {
-    update(Professor, req.params, req.body);
-    res.send('Atualizado!')
+    updateDocument('Professor', req.params, req.body, ProfessorSchema)
+    .then(result => {
+        res.send(result);
+    })
+    .catch(err => {
+        console.error(err);
+    })
 })
 
 export default router;

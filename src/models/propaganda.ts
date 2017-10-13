@@ -2,7 +2,7 @@ import * as mongoose from 'mongoose';
 
 const Schema = mongoose.Schema;
 
-const propagandaSchema = new Schema({
+export default new Schema({
     
     titulo: {
          type: String, 
@@ -28,7 +28,3 @@ const propagandaSchema = new Schema({
     },
 
 }, { collection:'propaganda' })
-
-const Propaganda = mongoose.model('Propaganda', propagandaSchema);
-
-export default Propaganda;

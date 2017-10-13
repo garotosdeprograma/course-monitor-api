@@ -7,13 +7,6 @@ import * as responseTime from 'response-time';
 import routes from './routes';
 import mongoConnect from './database-actions/open-connection';
 
-// Connect mongodb
-// mongoConnect.then(data => {
-//     console.log("Connect mongodb");
-// }).catch(err => {
-//     console.error(err);
-// })
-
 const app = express();
 
 // Enabling cross-origin resource sharing

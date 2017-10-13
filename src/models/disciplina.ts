@@ -3,7 +3,7 @@ import { emailValidator, isEmpty, containNumber } from '../helpers/validators';
 
 const Schema = mongoose.Schema;
 
-const disciplinaSchema = new Schema({
+export default new Schema({
     
     nome: {
         type: String, 
@@ -21,7 +21,3 @@ const disciplinaSchema = new Schema({
     },
 
 }, { collection:'disciplina' })
-
-const Disciplina = mongoose.model('Disciplina', disciplinaSchema);
-
-export default Disciplina;

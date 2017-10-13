@@ -3,7 +3,7 @@ import { emailValidator, isEmpty, containNumber } from '../helpers/validators';
 
 const Schema = mongoose.Schema;
 
-const professorSchema = new Schema({
+export default new Schema({
     
     nome: {
         type: String, 
@@ -59,7 +59,3 @@ const professorSchema = new Schema({
     turmas: [{ type: Schema.Types.ObjectId, ref: 'Turma' }]
 
 }, { collection:'professor' })
-
-const Professor = mongoose.model('Professor', professorSchema);
-
-export default Professor;
