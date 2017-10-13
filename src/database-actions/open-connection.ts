@@ -1,12 +1,14 @@
-// import mongoose from 'mongoose';
 import * as mongoose from 'mongoose'; //import mongoose
-
 import config from '../config/config';
 
-let connection: mongoose.Connection = mongoose.createConnection(config.url);
+mongoose.Promise = global.Promise;
 
-// export default mongoose.connect(config.url, {
-//     useMongoClient: true
-// });
+// const mongooseConnected 
 
-export default connection;
+export default () => {
+    return mongoose.createConnection(config.url, {
+        useMongoClient: true
+    });
+}
+
+// export const mongooseConnected = mongoose;

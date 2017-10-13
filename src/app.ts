@@ -4,11 +4,17 @@ import * as express from 'express';
 import * as helmet from 'helmet';
 import * as bodyParser from 'body-parser';
 import * as responseTime from 'response-time';
-import config from './config/config';
 import routes from './routes';
+import mongoConnect from './database-actions/open-connection';
 
-const app = express()
+// Connect mongodb
+// mongoConnect.then(data => {
+//     console.log("Connect mongodb");
+// }).catch(err => {
+//     console.error(err);
+// })
 
+const app = express();
 
 // Enabling cross-origin resource sharing
 app.use(cors());
@@ -25,7 +31,5 @@ app.use(bodyParser.urlencoded({ limit: '10mb', extended: true }));
 app.use(bodyParser.json({ type: 'application/json', limit: '10mb' }));
 
 app.use('/api', routes);
-
-
 
 export default app;

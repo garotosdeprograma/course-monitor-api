@@ -1,14 +1,19 @@
 import * as express from 'express';
-import Aluno from '../../models/aluno';
-import save from '../../database-actions/save-collection';
-
+import AlunoSchema from '../../models/aluno';
+import openConnection from '../../database-actions/open-connection';
+import createDocument from '../../helpers/createDocument';
 
 const router = express.Router();
 
 router.post('/', function(req, res, next) {
-    const aluno = new Aluno(req.body);
-    const alunoSave = save(aluno);
-    res.send(alunoSave);
-})
+    createDocument('Aluno', AlunoSchema, req.body)
+    .then(result => {
+        res.send(result);      
+    })
+    .catch(err => {
+        console.error(err);
+        res.send(err);
+    });
+});
 
 export default router;

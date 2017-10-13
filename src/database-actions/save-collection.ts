@@ -1,20 +1,17 @@
 import closeMongoConnection from './close-connection';
-import openMongoConnection from './open-connection'
+import * as mongoose from 'mongoose'; //import mongoose
+import openConnection from './open-connection';
+import config from '../config/config';
 
-export default (model) => {
-    console.log(model);
-    return model.save()
-    // openMongoConnection.once('open', function () {
-    //     console.log("SAVE");
-    //     return model.save(function (err) {
-    //         if (err) {
-    //             console.log(err)
-    //             closeMongoConnection(openMongoConnection);            
-    //         }
-    //         else {
-    //             console.log('sucess!');
-    //             closeMongoConnection(openMongoConnection);
-    //         };
-    //     });         
-    // });    
-};
+export default function (model, connection) {
+
+    return model.save().then(result => {
+        console.log(result);
+        closeMongoConnection(connection);
+        return result;
+    })
+    .catch(err => {
+        console.error(err);
+        closeMongoConnection(connection);        
+    })
+}

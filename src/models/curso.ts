@@ -1,5 +1,4 @@
-// import mongoose from 'mongoose';
-import mongoose = require("mongoose"); //import mongoose
+import * as mongoose from 'mongoose'; //import mongoose
 import { emailValidator, isEmpty, containNumber } from '../helpers/validators';
 
 const Schema = mongoose.Schema;

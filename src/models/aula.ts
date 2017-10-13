@@ -1,6 +1,5 @@
 import * as mongoose from 'mongoose';
 
-
 const Schema = mongoose.Schema;
 
 const aulaSchema = new Schema({

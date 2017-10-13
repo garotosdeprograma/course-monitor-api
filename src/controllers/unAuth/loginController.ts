@@ -1,7 +1,7 @@
-// import * as express from 'express';
+import * as express from 'express';
 
-// const router = express.Router();
+const router = express.Router();
 
-// router.route()
+router.route()
 
-// export default router;
+export default router;

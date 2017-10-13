@@ -1,5 +1,5 @@
 export default (mongoose) => {
-    mongoose.connection.close(() => {
+    mongoose.close(() => {
         console.log('Connection closed')
     });
 };

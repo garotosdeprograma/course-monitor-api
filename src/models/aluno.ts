@@ -1,10 +1,9 @@
-// import mongoose from 'mongoose';
-import mongoose = require("mongoose"); //import mongoose
+import * as mongoose from 'mongoose'; //import mongoose
 import { emailValidator, isEmpty, containNumber } from '../helpers/validators';
 
 const Schema = mongoose.Schema;
 
-const alunoSchema = new Schema({
+export default new Schema({
     
     nome: {
         type: String, 
@@ -60,6 +59,6 @@ const alunoSchema = new Schema({
 
 }, { collection:'aluno' })
 
-const Aluno = mongoose.model('Aluno', alunoSchema);
+// const Aluno = mongoose.model('Aluno', alunoSchema);
 
-export default Aluno;
+// export default Aluno;

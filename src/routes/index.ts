@@ -9,6 +9,3 @@ router.use('/', unAuthRoutes)
 router.use('/auth', authRoutes);
 
 export default router;
-
-
-

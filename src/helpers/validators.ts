@@ -11,5 +11,5 @@ export const isEmpty = (value) => {
 }
 
 export const containNumber = (value) => {
-    return !!value.match(/\d+/g);
+    return !value.match(/\d+/g);
 }
