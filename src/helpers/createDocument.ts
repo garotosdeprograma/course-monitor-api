@@ -5,5 +5,6 @@ export default (model, schema, body) => {
     const connection = openConnection();
     const Model = connection.model(model, schema);
     const document = new Model(body);
-    return save(document, connection);
+    return null;
+    // return save(document, connection);
 };

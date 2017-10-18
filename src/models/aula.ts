@@ -2,7 +2,7 @@ import * as mongoose from 'mongoose';
 
 const Schema = mongoose.Schema;
 
-export default new Schema({
+const aulaSchema = new Schema({
 
     numero_aula: {
         type: Number,
@@ -39,4 +39,6 @@ export default new Schema({
         required: [ true, 'O campo turma é obrigatório']
     }
     
-}, { collection: 'aula' })
+}, { collection: 'aula' });
+
+export default mongoose.model('Aula', aulaSchema);

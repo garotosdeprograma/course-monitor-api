@@ -3,22 +3,22 @@ import { emailValidator, isEmpty, containNumber } from '../helpers/validators';
 
 const Schema = mongoose.Schema;
 
-export default new Schema({
-    
+const notificacaoSchema = new Schema({
+
     tipo: {
-        type: String, 
+        type: String,
         trim: true,
         required: [true, 'O campo tipo é obrigatório'],
     },
-    
+
     titulo: {
-         type: String, 
-         trim: true,
-         required: [true, 'O campo título é obrigatório'],
+        type: String,
+        trim: true,
+        required: [true, 'O campo título é obrigatório'],
     },
 
     descricao: {
-        type: String, 
+        type: String,
         trim: true,
         required: [true, 'O campo descrição é obrigatório'],
     },
@@ -27,8 +27,11 @@ export default new Schema({
 
     nap: { type: Schema.Types.ObjectId, ref: 'UsuarioNap' },
 
-    data_update: { 
-        type: Date, 
-        default: Date.now 
+    data_update: {
+        type: Date,
+        default: Date.now
     }
-}, { collection:'notificacao' })
+
+}, { collection: 'notificacao' });
+
+export default mongoose.model('Notificacao', notificacaoSchema);

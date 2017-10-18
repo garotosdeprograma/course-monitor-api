@@ -1,14 +1,11 @@
-import closeConnection from './close-connection';
-import openConnection from './open-connection';
+import { ERROR } from '../constant/errors';
 
-export default (model, connection) => {
+export default (model) => {
 
     return model.save().then(result => {
-        closeConnection(connection);
         return result;
     })
     .catch(err => {
-        console.error(err);
-        closeConnection(connection);        
-    })
+        throw new Error(ERROR.USUARIO_NAO_AUTENTICADO);
+    });
 }

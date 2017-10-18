@@ -3,21 +3,23 @@ import { emailValidator, isEmpty, containNumber } from '../helpers/validators';
 
 const Schema = mongoose.Schema;
 
-export default new Schema({
-    
+const disciplinaSchema = new Schema({
+
     nome: {
-        type: String, 
+        type: String,
         trim: true,
         required: [true, 'O campo nome é obrigatório'],
     },
 
     semestre: String,
-    
+
     turmas: [{ type: Schema.Types.ObjectId, ref: 'Turma' }],
 
-    data_update: { 
+    data_update: {
         type: Date,
-        default: Date.now 
+        default: Date.now
     },
 
-}, { collection:'disciplina' })
+}, { collection: 'disciplina' });
+
+export default mongoose.model('Disciplina', disciplinaSchema);

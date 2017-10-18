@@ -1,7 +1,7 @@
 import * as express from 'express';
-import ProfessorSchema from '../../models/professor';
-import updateDocument from '../../helpers/updateDocument';
-import createDocument from '../../helpers/createDocument';
+import ProfessorSchema from '../models/professor';
+import updateDocument from '../helpers/updateDocument';
+import createDocument from '../helpers/createDocument';
 
 const router = express.Router();
 

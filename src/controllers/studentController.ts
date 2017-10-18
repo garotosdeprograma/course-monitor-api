@@ -1,7 +1,7 @@
 import * as express from 'express';
-import AlunoSchema from '../../models/aluno';
-import searchBy from '../../helpers/searchByDocument';
-import updateDocument from '../../helpers/updateDocument';
+import AlunoSchema from '../models/aluno';
+import searchBy from '../helpers/searchByDocument';
+import updateDocument from '../helpers/updateDocument';
 
 const router = express.Router();
 

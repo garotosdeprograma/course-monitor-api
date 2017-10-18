@@ -2,29 +2,31 @@ import * as mongoose from 'mongoose';
 
 const Schema = mongoose.Schema;
 
-export default new Schema({
-    
+const propagandaSchema = new Schema({
+
     titulo: {
-         type: String, 
-         trim: true,
-         required: [true, 'O campo título é obrigatório'],
+        type: String,
+        trim: true,
+        required: [true, 'O campo título é obrigatório'],
     },
 
     descricao: {
-        type: String, 
+        type: String,
         trim: true,
         required: [true, 'O campo descrição é obrigatório'],
     },
 
     url: {
-        type: String, 
+        type: String,
         trim: true,
         required: [true, 'O campo url é obrigatório'],
     },
 
-    data_update: { 
+    data_update: {
         type: Date,
-        default: Date.now 
+        default: Date.now
     },
 
-}, { collection:'propaganda' })
+}, { collection: 'propaganda' });
+
+export default mongoose.model('Propaganda', propagandaSchema);

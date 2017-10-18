@@ -25,10 +25,13 @@
   "homepage": "https://github.com/garotosdeprograma/course-monitor-api#readme",
   "dependencies": {
     "@types/node": "^8.0.33",
+    "bcrypt": "^1.0.3",
     "body-parser": "^1.18.2",
     "cors": "^2.8.4",
     "express": "^4.16.0",
+    "express-jwt": "^5.3.0",
     "helmet": "^3.8.2",
+    "jsonwebtoken": "^8.1.0",
     "mongoose": "^4.11.14",
     "morgan": "^1.9.0",
     "snyk": "^1.42.4"
