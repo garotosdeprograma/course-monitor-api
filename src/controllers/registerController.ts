@@ -1,8 +1,5 @@
 import * as express from 'express';
 import AlunoModel from '../models/aluno';
-import openConnection from '../database-actions/open-connection';
-import createDocument from '../helpers/createDocument';
-import save from '../database-actions/save-collection';
 import { ERROR } from '../constant/errors';
 import extractErrorMessage from '../helpers/extractErrorMessage';
 import customErro from '../models/customErro';

@@ -1,23 +1,26 @@
 import * as express from 'express';
 import ProfessorSchema from '../models/professor';
-import updateDocument from '../helpers/updateDocument';
-import createDocument from '../helpers/createDocument';
+import extractErrorMessage from '../helpers/extractErrorMessage';
+import customErro from '../models/customErro';
 
 const router = express.Router();
 
 router.post('/professor', function (req, res, next) {
-    createDocument('Professor', ProfessorSchema, req.body)
-    .then(result => {
-        res.send(result);
+    const professor = new ProfessorSchema(req.body)
+    professor.save().then(result => {
+        return res.status(201).send(result);
     })
     .catch(err => {
-        console.error(err);
-        res.send(err);
+        if(err instanceof customErro) {
+            res.status(400).send([err.message]);            
+        } else {
+            res.status(400).send(extractErrorMessage(err.errors));
+        }
     });
-})
+});
 
 router.put('/professor/:_id', function (req, res, next) {
-    updateDocument('Professor', req.params, req.body, ProfessorSchema)
+    ProfessorSchema.update(req.params, req.body)
     .then(result => {
         res.send(result);
     })

@@ -1,12 +1,10 @@
 import * as express from 'express';
 import AlunoSchema from '../models/aluno';
-import searchBy from '../helpers/searchByDocument';
-import updateDocument from '../helpers/updateDocument';
 
 const router = express.Router();
 
 router.get('/:_id', function (req, res, next) {
-    searchBy('Aluno', req.params, AlunoSchema)
+    AlunoSchema.find(req.params)
     .then(result => {
         res.send(result);
     })
@@ -16,7 +14,7 @@ router.get('/:_id', function (req, res, next) {
 });
 
 router.put('/:_id', function (req, res, next) {
-    updateDocument('Aluno', req.params, req.body, AlunoSchema)
+    AlunoSchema.update(req.params, req.body)
     .then(result => {
         res.send(result);
     })
