@@ -14,7 +14,7 @@ const aulaSchema = new Schema({
         type: Date,
         required: [true, 'O campo data aula é obrigatório']
     },
-   
+
     data_cadastro: {
         type: Date,
         default: Date.now
@@ -38,7 +38,7 @@ const aulaSchema = new Schema({
         ref: 'Turma',
         required: [ true, 'O campo turma é obrigatório']
     }
-    
+
 }, { collection: 'aula' });
 
 export default mongoose.model('Aula', aulaSchema);

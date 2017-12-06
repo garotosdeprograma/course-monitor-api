@@ -1,5 +1,5 @@
 import * as express from 'express';
-import AlunoSchema from '../models/aluno';
+import AlunoSchema from '../models/student';
 
 const router = express.Router();
 

@@ -1,5 +1,5 @@
 import * as express from 'express';
-import AlunoModel from '../models/aluno';
+import AlunoModel from '../models/student';
 import { ERROR } from '../constant/errors';
 import extractErrorMessage from '../helpers/extractErrorMessage';
 import customErro from '../models/customErro';

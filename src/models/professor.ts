@@ -54,10 +54,10 @@ const professorSchema = new Schema({
 
     permissoes: {
         type: Array,
-        default: [  permissions.CADASTRAR_NOTIFICACAO, 
-                    permissions.DELETAR_NOTIFICACAO, 
-                    permissions.EDITAR_NOTIFICACAO, 
-                    permissions.EDITAR_PROFESSOR, 
+        default: [  permissions.CADASTRAR_NOTIFICACAO,
+                    permissions.DELETAR_NOTIFICACAO,
+                    permissions.EDITAR_NOTIFICACAO,
+                    permissions.EDITAR_PROFESSOR,
                     permissions.VISUALIZAR_PROFESSOR]
     },
 

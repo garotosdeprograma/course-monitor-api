@@ -1,12 +1,12 @@
-import * as mongoose from 'mongoose'; //import mongoose
+import * as mongoose from 'mongoose'; // import mongoose
 import { emailValidator, isEmpty, containNumber } from '../helpers/validators';
 import handleE11000 from '../middleware/handleE11000';
 
 const Schema = mongoose.Schema;
 
-const alunoSchema = new Schema({
+const studentSchema = new Schema({
 
-    nome: {
+    firstName: {
         type: String,
         trim: true,
         maxlength: [20, 'O campo nome deve conter no máximo 20 caracteres.'],
@@ -17,7 +17,7 @@ const alunoSchema = new Schema({
         }
     },
 
-    sobrenome: {
+    lastName: {
         type: String,
         required: [true, 'O campo sobrenome é obrigatório'],
         maxlength: [20, 'O campo sobrenome deve conter no máximo 20 caracteres.'],
@@ -37,31 +37,46 @@ const alunoSchema = new Schema({
         }
     },
 
-    // TODO Adicionar atributo semestre corrente
-
-    senha: {
+    password: {
         type: String,
-        required: [true, 'O campo senha é obrigatório']
+        required: [true, 'O campo senha é obrigatório'],
+        select: false
     },
 
-    matricula: Number,
+    // tODO Adicionar atributo semestre corrente
 
-    curso: {
+    matricula: {
+        type: Number
+    },
+
+    degree: {
         type: String,
         required: [true, 'O campo curso é obrigatório']
     },
 
-    data_update: {
+    updated_at: {
         type: Date,
         default: Date.now
     },
 
-    turmas: [{ type: Schema.Types.ObjectId, ref: 'Turma' }]
+    token: {
+        type: String,
+    },
 
-}, { collection: 'aluno' });
+    classes: [{ type: Schema.Types.ObjectId, ref: 'classe' }]
 
-const Aluno = mongoose.model('Aluno', alunoSchema);
+}, { collection: 'student' });
 
-alunoSchema.post('save', handleE11000);
+// tslint:disable-next-line:variable-name
+const Student = mongoose.model('Student', studentSchema);
 
-export default Aluno;
+studentSchema.post('save', handleE11000);
+
+studentSchema.set('toJSON', {
+    transform: function(doc, ret, options) {
+        delete ret.password;
+        return ret;
+    }
+});
+
+export default Student;

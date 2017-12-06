@@ -9,7 +9,7 @@ const router = express.Router();
 
 router.route()
 
-router.post('/login', function (req, res) {
+router.post('', function (req, res) {
     if (!req.body.email) {
         res.status(400).send(ERROR.EMAIL_OBRIGATORIO);
         return;
@@ -21,7 +21,7 @@ router.post('/login', function (req, res) {
     
     UserModel.findOne({ email: req.body.email }, function (err, user) {
         if (!user.comparePassword(req.body.senha)) {
-            res.status(400).send(ERROR.USUARIO_NAO_AUTENTICADO);
+            res.status(400).send(ERROR.USUARIO_NAO_ENCONTRADO);
         } else {
             return jwt.sign({ email: user.email }, secret);
         }

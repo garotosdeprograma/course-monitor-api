@@ -1,11 +1,13 @@
-export default (error) => {
+export default (error: Error) => {
     const errorMessages = [];
-    if(error instanceof String) {
+    if (error instanceof String) {
         return error;
     }
-    for(const err in error) {
-        let prop = error[err];
-        errorMessages.push(error[err].message)
+    for (let err in error) {
+        if (error.hasOwnProperty(err)) {
+            let prop = error[err];
+            errorMessages.push(error[err].message);
+        }
     }
     return errorMessages;
-}
+};
